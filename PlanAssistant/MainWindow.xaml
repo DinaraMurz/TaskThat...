@@ -1,0 +1,60 @@
+﻿<Window x:Class="PlanAssistant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlanAssistant"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="500"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Closing="Window_Closing" WindowStyle="None">
+
+    <Grid>
+        <TextBlock Text="Введите дату" FontFamily="Segoe Script" Margin="29,75,331,320"/>
+        <TextBlock Text="Введите время" FontFamily="Segoe Script" Margin="29,118,331,277"/>
+        <TextBlock Text="Введите периодность" FontFamily="Segoe Script" Margin="29,161,331,234"/>
+        <TextBlock Text="Введите тип" FontFamily="Segoe Script" Margin="29,204,331,191" />
+
+        <DatePicker Name="datePicker" Text="Выбирете дату" Margin="207,61,165,0" VerticalAlignment="Top" Height="38"/>
+        <materialDesign:TimePicker Name="timePicker" Margin="207,104,165,277" Height="38"/>
+
+        <ComboBox Name="frequencyComboBox" FontFamily="Segoe Script" Margin="207,147,165,0" VerticalAlignment="Top" Height="43">
+            <ComboBoxItem Content="раз в день"/>
+            <ComboBoxItem Content="раз в неделю"/>
+            <ComboBoxItem Content="раз в месяц"/>
+            <ComboBoxItem Content="раз в год"/>
+        </ComboBox>
+
+        <ComboBox Name="typeComboBox" SelectionChanged="TypeComboBoxSelected" FontFamily="Segoe Script" Text="sdf" Foreground="Black" Margin="207,190,165,0" VerticalAlignment="Top" Height="38">
+            <ComboBoxItem Content="email"/>
+            <ComboBoxItem Content="download file"/>
+            <ComboBoxItem Content="move directory"/>
+        </ComboBox>
+
+        <Button Name="ReadyButton" Click="ReadyButtonClick" Content="Ready" Margin="0,369,0,0" Height="Auto"/>
+
+        <Button Name="closeButton" Click="CloseButtonClick" Content="Х" Margin="0,4,2,0" Height="43" Background="#FFB73A3A" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" HorizontalAlignment="Right" Width="57">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBox Name="firstTextBox" Margin="362,259,10,160" TextWrapping="Wrap" Text=""/>
+        <TextBox Name="secondTextBox" Margin="362,287,10,132" TextWrapping="Wrap" Text=""/>
+
+        <TextBlock Name="firstTextBlock" Text="" FontFamily="Segoe Script" Margin="109,253,165,137" />
+        <TextBlock Name="secondTextBlock" FontFamily="Segoe Script" Margin="109,287,165,99" />
+
+    </Grid>
+</Window>
